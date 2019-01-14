@@ -9,6 +9,7 @@ extern keymap_config_t keymap_config;
 #define _NUM 2
 #define _FUNC 3
 #define _SYM 4
+#define _MOUSE 5
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -16,6 +17,7 @@ enum custom_keycodes {
   NUM,
   FUNC,
   SYM,
+  MOUSE,
   ZEROS
 };
 
@@ -27,6 +29,7 @@ enum custom_keycodes {
 #define KC_NUM NUM
 #define KC_FUNC FUNC
 #define KC_SYM SYM
+#define KC_MOUS MOUSE
 
 // Num layer
 #define KC_000 ZEROS
@@ -46,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         , A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,ENT ,    ,
+     MOUS, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,ENT ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,    ,         , N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -60,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,ENT ,STAB,TAB ,ESC ,DEL ,               STAB,PGUP,UP  ,PGDN,MENU,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,LEFT,DOWN,RGHT,ENT ,    ,
+     MOUS,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,LEFT,DOWN,RGHT,ENT ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,UNDO,CUT ,COPY,PAST,    ,    ,         ,TAB ,HOME,DEL ,END ,REDO,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -74,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,EXLM,STAB,TAB ,PEQL,CIRC,               PMNS,P7  ,P8  ,P9  ,PAST,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,P4  ,P5  ,P6  ,PENT,    ,
+     MOUS,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,P4  ,P5  ,P6  ,PENT,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,LPRN,LT  ,PERC,GT  ,RPRN,    ,     P0  ,PPLS,P1  ,P2  ,P3  ,PSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -89,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,LOCK,SIZE,CAPS,MOVE,VOLU,               PGUP,F7  ,F8  ,F9  ,F10 ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LGUI,LCTL,LSFT,LALT,MUTE,               BSPC,F4  ,F5  ,F6  ,F11 ,    ,
+     MOUS,LGUI,LCTL,LSFT,LALT,MUTE,               BSPC,F4  ,F5  ,F6  ,F11 ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,LEFT,UP  ,DOWN,RGHT,VOLD,    ,         ,PLUS,F1  ,F2  ,F3  ,F12,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -101,15 +104,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,LGUI,LCTL,LSFT,LALT,TAB ,               STAB,RALT,RSFT,RCTL,RGUI,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,SCLN,MINS,DQUO,PLUS,PIPE,               RCBR,RBRC,RPRN,GT  ,BSLS,    ,
+         ,COLN,MINS,QUOT,PLUS,AMPR,               RCBR,RBRC,RPRN,GT  ,BSLS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,COLN,UNDS,QUOT,EQL ,AMPR,               LCBR,LBRC,LPRN,LT  ,SLSH,    ,
+     MOUS,SCLN,UNDS,DQUO,EQL ,PIPE,               LCBR,LBRC,LPRN,LT  ,SLSH,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,EXLM,QUES,AT  ,DLR ,ASTR,    ,         ,HASH,CIRC,PERC,TILD,GRV ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
   //                  `----+----+----'        `----+----+----'
+  ),
+
+  [_MOUSE] = LAYOUT_kc(
+  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+         ,LGUI,LCTL,LSFT,LALT,TAB ,               STAB,RALT,RSFT,RCTL,RGUI,    ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+         ,    ,    ,    ,    ,    ,                   ,BTN1,MS_U,BTN2,WH_U,    ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+     MOUS,    ,    ,    ,    ,    ,                   ,MS_L,MS_D,MS_R,WH_D,    ,
+  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+  //                  `----+----+----'        `----+----+----'
   )
+
 
 };
 
@@ -162,6 +180,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           layer_on(_SYM);
       } else {
           layer_off(_SYM);
+      }
+      return false;
+      break;
+  case MOUSE:
+      if (record->event.pressed) {
+          layer_on(_MOUSE);
+      } else {
+          layer_off(_MOUSE);
       }
       return false;
       break;
