@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,    ,         , N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -65,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      MOUS,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,LEFT,DOWN,RGHT,ENT ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,UNDO,CUT ,COPY,PAST,    ,    ,         ,TAB ,HOME,DEL ,END ,REDO,    ,
+         ,UNDO,CUT ,COPY,PSTE,    ,    ,         ,TAB ,HOME,DEL ,END ,REDO,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,LPRN,LT  ,PERC,GT  ,RPRN,    ,     P0  ,PPLS,P1  ,P2  ,P3  ,PSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,LEFT,UP  ,DOWN,RGHT,VOLD,    ,         ,PLUS,F1  ,F2  ,F3  ,F12,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -104,13 +104,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,LGUI,LCTL,LSFT,LALT,TAB ,               STAB,RALT,RSFT,RCTL,RGUI,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,COLN,MINS,QUOT,PLUS,AMPR,               RCBR,RBRC,RPRN,GT  ,BSLS,    ,
+         ,COLN,MINS,QUOT,PLUS,AMPR,               RBRC,RCBR,RPRN,GT  ,BSLS,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     MOUS,SCLN,UNDS,DQUO,EQL ,PIPE,               LCBR,LBRC,LPRN,LT  ,SLSH,    ,
+     MOUS,SCLN,UNDS,DQUO,EQL ,PIPE,               LBRC,LCBR,LPRN,LT  ,SLSH,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,EXLM,QUES,AT  ,DLR ,ASTR,    ,         ,HASH,CIRC,PERC,TILD,GRV ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -124,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,NUM ,SYM
+                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
   )
 
