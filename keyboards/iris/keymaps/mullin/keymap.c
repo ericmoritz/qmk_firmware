@@ -37,9 +37,16 @@ enum custom_keycodes {
 #define KC_RST RESET
 
 #define KC_REDO LSFT(KC_UNDO)
-#define KC_LOCK LCTL(LGUI(KC_Q))
-#define KC_SIZE LALT(KC_F10)
+#define KC_LOCK KC_SLEP
+#define KC_MAXM LALT(KC_F10)
 #define KC_MOVE KC_NO
+
+#define KC_HCUT LGUI(KC_X)
+#define KC_HCPY LGUI(KC_C)
+#define KC_HPST LGUI(KC_V)
+#define KC_HPNX LALT(KC_Y)
+#define KC_HUDO LGUI(KC_Z)
+#define KC_HRDO LGUI(LSFT(KC_Z))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -65,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      MOUS,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,LEFT,DOWN,RGHT,ENT ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,UNDO,CUT ,COPY,PSTE,    ,    ,         ,TAB ,HOME,DEL ,END ,REDO,    ,
+         ,HUDO,HCUT,HCPY,HPST,HPNX,    ,         ,TAB ,HOME,DEL ,END ,HRDO,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
@@ -77,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,EXLM,STAB,TAB ,PEQL,CIRC,               PMNS,P7  ,P8  ,P9  ,PAST,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     MOUS,LGUI,LCTL,LSFT,LALT,BSPC,               BSPC,P4  ,P5  ,P6  ,PENT,    ,
+     MOUS,LGUI,LCTL,LSFT,LALT,BSPC,               PPLS,P4  ,P5  ,P6  ,PENT,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LPRN,LT  ,PERC,GT  ,RPRN,    ,     P0  ,PPLS,P1  ,P2  ,P3  ,PSLS,    ,
+         ,LPRN,LT  ,PERC,GT  ,RPRN,    ,         ,P0  ,P1  ,P2  ,P3  ,PSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
@@ -90,11 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,LGUI,LCTL,LSFT,LALT,TAB ,               STAB,RALT,RSFT,RCTL,RGUI,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LOCK,SIZE,CAPS,MOVE,VOLU,               PGUP,F7  ,F8  ,F9  ,F10 ,    ,
+         ,LOCK,MAXM,CAPS,MOVE,VOLU,               PGUP,F7  ,F8  ,F9  ,F10 ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      MOUS,LGUI,LCTL,LSFT,LALT,MUTE,               BSPC,F4  ,F5  ,F6  ,F11 ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LEFT,UP  ,DOWN,RGHT,VOLD,    ,         ,PLUS,F1  ,F2  ,F3  ,F12,    ,
+         ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,PLUS,F1  ,F2  ,F3  ,F12,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
   //                  `----+----+----'        `----+----+----'
