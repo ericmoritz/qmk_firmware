@@ -39,33 +39,34 @@ extern keymap_config_t keymap_config;
 #define KC_HRDO LGUI(LSFT(KC_Z))
 #define KC_NWIN LGUI(KC_TAB)
 #define KC_PWIN LGUI(LSFT(KC_TAB))
+#define KC_SENT RSFT_T(KC_ENT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,LGUI,LCTL,LSFT,LALT,TAB ,               STAB,RALT,RSFT,RCTL,RGUI,    ,
+     ESC ,    ,LCTL,LGUI,LALT,HOME,               END ,RALT,RGUI,RCTL,DEL ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,    ,
+     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,STAB,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     MOUS, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,ENT ,    ,
+     LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,SENT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         , Z  , X  , C  , V  , B  ,    ,         , N  , M  ,COMM,DOT ,SLSH,    ,
+     MOUS, Z  , X  , C  , V  , B  ,    ,         , N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       FUNC,NAV ,SPC ,         SPC ,SYM ,NUM
+                       NUM ,NAV ,SPC ,         SPC ,SYM ,FUNC
   //                  `----+----+----'        `----+----+----'
   ),
 
 
   [_FUNC] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,                   ,F7  ,F8  ,F9  ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LOCK,MAXM,CAPS,MOVE,VOLU,                   ,F7  ,F8  ,F9  ,F10 ,    ,
+         ,LOCK,MAXM,CAPS,MOVE,VOLU,                   ,F4  ,F5  ,F6  ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,MUTE,                   ,F4  ,F5  ,F6  ,F11 ,    ,
+         ,    ,    ,    ,    ,MUTE,                   ,F1  ,F2  ,F3  ,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,    ,F1  ,F2  ,F3  ,F12,    ,
+         ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,    ,    ,    ,    ,   ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -103,13 +104,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUM] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,                   ,P7  ,P8  ,P9  ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,PSLS,PAST,PCMM,    ,                   ,P7  ,P8  ,P9  ,    ,    ,
+         ,    ,PSLS,PAST,PCMM,    ,                   ,P4  ,P5  ,P6  ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,PMNS,PPLS,PEQL,    ,                   ,P4  ,P5  ,P6  ,PENT,    ,
+         ,    ,PMNS,PPLS,PEQL,    ,                   ,P1  ,P2  ,P3  ,PENT,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,P0  ,P1  ,P2  ,P3  ,PDOT,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,P0  ,P0  ,PDOT,PENT,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -131,5 +132,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 };
-
-
