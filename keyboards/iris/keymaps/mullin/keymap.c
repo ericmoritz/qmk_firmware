@@ -15,11 +15,11 @@ extern keymap_config_t keymap_config;
 #define _______ KC_TRNS
 
 // Layer keys
-#define KC_NAV TT(_NAV)
-#define KC_NUM TT(_NUM)
-#define KC_FUNC TT(_FUNC)
-#define KC_SYM TT(_SYM)
-#define KC_MOUS TT(_MOUSE)
+#define KC_NAV MO(_NAV)
+#define KC_NUM MO(_NUM)
+#define KC_FUNC MO(_FUNC)
+#define KC_SYM MO(_SYM)
+#define KC_MOUS MO(_MOUSE)
 
 // Num layer
 #define KC_000 ZEROS
@@ -49,9 +49,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,STAB,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,SENT,
+     LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,ENT ,SENT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     MOUS, Z  , X  , C  , V  , B  ,    ,         , N  , M  ,COMM,DOT ,SLSH,    ,
+     LSFT, Z  , X  , C  , V  , B  ,MOUS,         , N  , M  ,COMM,DOT ,SLSH,SENT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        NUM ,NAV ,SPC ,         SPC ,SYM ,FUNC
   //                  `----+----+----'        `----+----+----'
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     NWIN,    ,    ,    ,ESC ,    ,               BSPC,PGUP,UP  ,PGDN,    ,    ,
+         ,    ,    ,    ,ESC ,    ,               BSPC,PGUP,UP  ,PGDN,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,               BSPC,LEFT,DOWN,RGHT,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
