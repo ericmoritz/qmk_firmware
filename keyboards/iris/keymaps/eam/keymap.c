@@ -1,6 +1,5 @@
-#include "iris.h"
-#include "action_layer.h"
-#include "eeconfig.h"
+#include QMK_KEYBOARD_H
+
 
 extern keymap_config_t keymap_config;
 
@@ -19,44 +18,37 @@ enum custom_keycodes {
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
 
-#define KC_CAPW LGUI(LSFT(KC_3))        // Capture whole screen
-#define KC_CPYW LGUI(LSFT(LCTL(KC_3)))  // Copy whole screen
-#define KC_CAPP LGUI(LSFT(KC_4))        // Capture portion of screen
-#define KC_CPYP LGUI(LSFT(LCTL(KC_4)))  // Copy portion of screen
-#define KC_ESCC MT(MOD_LCTL, KC_ESC)
-#define KC_LOWR LOWER
-#define KC_RASE RAISE
-#define KC_RST RESET
-#define KC_BL_S BL_STEP
-#define KC_ENTS MT(MOD_LSFT, KC_ENT)
+#define KC_LOWR MO(_LOWER)
+#define KC_RASE MO(_RAISE)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     GRV , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,MINS,
+     ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  , DEL,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,QUOT,
+     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSPC ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     ESCC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,ENTS,
+     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,SPC ,     LCTL, N  , M  ,COMM,DOT ,SLSH,ENTS,
+     LSFT, Z  , X  , C  , V  , B  ,LBRC,     RBRC , N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LGUI,LOWR,SPC ,         BSPC,RASE,RALT
+                       LALT,LGUI,SPC,         ENT ,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RST , 1  , 2  ,END , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
+         ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     HOME,CAPP,LEFT,RGHT, UP ,LBRC,               RBRC,    ,    ,    ,PLUS,PIPE,
+         ,TILD,PIPE,MINS,PLUS,    ,                   ,LEFT,DOWN,RGHT,PGDN,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     BL_S,CPYP,    ,    ,DOWN,LCBR,LPRN,     RPRN,RCBR,    ,    ,    ,MINS,    ,
+         , GRV,BSLS,UNDS, EQL,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,DEL ,         DEL ,    ,
+                           ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -64,80 +56,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,    ,
+         ,    ,    ,    ,    ,VOLU,                   ,BTN1,MS_U,BTN2,WH_U,F12 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     DEL ,MPRV,MNXT,VOLU,PGUP,UNDS,               EQL ,MS_U,MS_L,MS_R,    ,BSLS,
+         ,    ,    ,    ,   , MUTE,                   ,MS_L,MS_D,MS_R,WH_D,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,PLUS,MS_D,BTN1,BTN1,BTN3,    ,
+         ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,    ,BTN3,BTN4,BTN5,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
-  ),
-
-  [_ADJUST] = LAYOUT(
-  //,--------+--------+--------+--------+--------+--------.                          ,--------+--------+--------+--------+--------+--------.
-      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, _______,                            _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
-      RESET  , DEBUG  , RGB_HUD, RGB_SAD, RGB_VAD, _______,                            _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------+--------.        ,--------|--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-  //`--------+--------+--------+----+---+--------+--------+--------/        \--------+--------+--------+---+----+--------+--------+--------'
-                                      _______, _______, _______,                  _______, _______, _______
-  //                                `--------+--------+--------'                `--------+--------+--------'
   )
-
 };
-
-#ifdef AUDIO_ENABLE
-float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
-#endif
-
-void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case QWERTY:
-      if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(tone_qwerty);
-        #endif
-        persistent_default_layer_set(1UL<<_QWERTY);
-      }
-      return false;
-      break;
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case ADJUST:
-      if (record->event.pressed) {
-        layer_on(_ADJUST);
-      } else {
-        layer_off(_ADJUST);
-      }
-      return false;
-      break;
-  }
-  return true;
-}

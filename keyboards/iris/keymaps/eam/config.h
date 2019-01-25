@@ -1,5 +1,4 @@
 /*
-Copyright 2017 Danny Nguyen <danny@keeb.io>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,12 +14,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
 #include "config_common.h"
 
-/* Use I2C or Serial, not both */
+                                    /* Use I2C or Serial, not both */
 
 #define USE_SERIAL
 // #define USE_I2C
@@ -32,6 +32,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #define TAPPING_TERM 150
+#define TAPPING_TOGGLE 2
+
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_TIME_TO_MAX 60
+#define MOUSEKEY_MAX_SPEED 7
+#define MOUSEKEY_WHEEL_DELAY 0
 
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
