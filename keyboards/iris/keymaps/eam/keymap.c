@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 
+#include "keymap.h"
 
 extern keymap_config_t keymap_config;
 
@@ -71,13 +72,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT(
   //,--------+--------+--------+--------+--------+--------.                          ,--------+--------+--------+--------+--------+--------.
-      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+      RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW,RGB_M_SN,RGB_M_K,                           RGB_M_X,RGB_M_G,RGB_M_T, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
       RESET  , DEBUG  , RGB_HUD, RGB_SAD, RGB_VAD, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------.        ,--------|--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+      _______, RGB_RMOD, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
   //`--------+--------+--------+----+---+--------+--------+--------/        \--------+--------+--------+---+----+--------+--------+--------'
                                       _______, _______, _______,                  _______, _______, _______
   //                                `--------+--------+--------'                `--------+--------+--------'
@@ -96,6 +97,7 @@ void persistent_default_layer_set(uint16_t default_layer) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  twinkle(keycode, record);
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
@@ -133,4 +135,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
   }
   return true;
+}
+
+
+void twinkle(uint16_t keycode, keyrecord_t *record) {
+  if (!record->event.pressed) {
+    return;
+  }
+  switch (keycode % 3) {
+      case 0:
+        // Pink
+        rgblight_sethsv_noeeprom(330, 100, 255);
+        break;
+      case 1:
+        // Blue
+        rgblight_sethsv_noeeprom(200, 100, 255);
+        break;
+      default:
+        // Purple
+        rgblight_sethsv_noeeprom(299, 55, 255);
+        break;
+    }
+}
+
+uint32_t layer_state_set_user(uint32_t state) {
+  switch (biton32(state)) {
+  case _RAISE:
+    // Pink
+    rgblight_sethsv_noeeprom(330, 100, 255);
+    break;
+  case _LOWER:
+    // Blue
+    rgblight_sethsv_noeeprom(200, 100, 255);
+    break;
+  case _ADJUST:
+    // White
+    rgblight_sethsv_noeeprom(0, 0, 255);
+    break;
+  default: //  for any other layers, or the default layer
+    // Purple
+    rgblight_sethsv_noeeprom(299, 55, 255);
+    break;
+  }
+  return state;
 }
