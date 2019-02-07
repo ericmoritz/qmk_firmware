@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,OSLK,
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,WAKE,OSLK,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RGB_TOG    ,    ,    ,    ,    ,VOLU,                   ,BTN1,MS_U,BTN2,WH_U,F12 ,
+  RGB_TOG,    ,    ,    ,    ,VOLU,                   ,BTN1,MS_U,BTN2,WH_U,F12 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,BTN4,BTN3,BTN2,BTN1,MUTE,                   ,MS_L,MS_D,MS_R,WH_D,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
@@ -139,21 +139,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
 void twinkle(uint16_t keycode, keyrecord_t *record) {
+  uint8_t v = 200;
   if (!record->event.pressed) {
-    return;
+    v = 255;
   }
   switch (keycode % 3) {
       case 0:
         // Pink
-        rgblight_sethsv_noeeprom(330, 100, 255);
+        rgblight_sethsv_noeeprom(330, 100, v);
         break;
       case 1:
         // Blue
-        rgblight_sethsv_noeeprom(200, 100, 255);
+        rgblight_sethsv_noeeprom(200, 100, v);
         break;
       default:
         // Purple
-        rgblight_sethsv_noeeprom(299, 55, 255);
+        rgblight_sethsv_noeeprom(299, 55, v);
         break;
     }
 }
