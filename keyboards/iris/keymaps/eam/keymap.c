@@ -23,6 +23,8 @@ enum custom_keycodes {
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 #define KC_CESC MT(MOD_LCTL, KC_ESC)
+#define KC_CSPC MT(MOD_LCTL, KC_SPC)
+#define KC_CENT MT(MOD_LCTL, KC_ENT)
 #define KC_OSLK LCTL(LGUI(KC_Q))
 #define KC_RGB_TOG RGB_TOG
 
@@ -38,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B  ,LBRC,     RBRC , N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LGUI,SPC,         ENT ,LOWR,RASE
+                       LALT,LGUI,CSPC,        CENT ,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
