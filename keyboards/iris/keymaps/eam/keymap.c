@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      CESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,LBRC,     RBRC , N  , M  ,COMM,DOT ,SLSH,RSFT,
+     LSPO, Z  , X  , C  , V  , B  ,LBRC,     RBRC , N  , M  ,COMM,DOT ,SLSH,RSPC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LALT,LGUI,CSPC,        CENT ,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
@@ -48,9 +48,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,WAKE,OSLK,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
+         ,    ,    ,    ,    ,    ,               PGUP,HOME, UP ,END ,LBRC,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,TILD,PIPE,MINS,PLUS,    ,                   ,LEFT,DOWN,RGHT,PGDN,    ,
+         ,TILD,PIPE,MINS,PLUS,    ,               PGDN,LEFT,DOWN,RGHT,PGDN,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          , GRV,BSLS,UNDS, EQL,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-  RGB_TOG,    ,    ,    ,    ,VOLU,                   ,BTN1,MS_U,BTN2,WH_U,F12 ,
+  RGB_TOG,    ,    ,    ,    ,VOLU,               WH_U,BTN1,MS_U,BTN2,    ,F12 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,BTN4,BTN3,BTN2,BTN1,MUTE,                   ,MS_L,MS_D,MS_R,WH_D,    ,
+         ,BTN4,BTN3,BTN2,BTN1,MUTE,               WH_D,MS_L,MS_D,MS_R,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,    ,BTN3,BTN4,BTN5,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -141,35 +141,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
 void twinkle(uint16_t keycode, keyrecord_t *record) {
-  uint8_t v = 200;
-  if (!record->event.pressed) {
-    v = 255;
-  }
-  switch (keycode % 3) {
-      case 0:
-        // Pink
-        rgblight_sethsv_noeeprom(330, 100, v);
-        break;
-      case 1:
-        // Blue
-        rgblight_sethsv_noeeprom(200, 100, v);
-        break;
-      default:
-        // Purple
-        rgblight_sethsv_noeeprom(299, 55, v);
-        break;
-    }
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
   switch (biton32(state)) {
   case _RAISE:
     // Pink
-    rgblight_sethsv_noeeprom(330, 100, 255);
+    rgblight_sethsv_noeeprom(330, 255, 255);
     break;
   case _LOWER:
     // Blue
-    rgblight_sethsv_noeeprom(200, 100, 255);
+    rgblight_sethsv_noeeprom(240, 255, 255);
     break;
   case _ADJUST:
     // White
@@ -177,7 +159,7 @@ uint32_t layer_state_set_user(uint32_t state) {
     break;
   default: //  for any other layers, or the default layer
     // Purple
-    rgblight_sethsv_noeeprom(299, 55, 255);
+    rgblight_sethsv_noeeprom(299, 140, 163);
     break;
   }
   return state;

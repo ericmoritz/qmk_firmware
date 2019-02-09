@@ -55,3 +55,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 #define NO_ACTION_ONESHOT
+#undef STARTUP_SONG
+//#define STARTUP_SONG SONG(PLANCK_SOUND)
+//#define STARTUP_SONG SONG(PREONIC_SOUND)
+#define STARTUP_SONG SONG(CLOSE_ENCOUNTERS_5_NOTE)
