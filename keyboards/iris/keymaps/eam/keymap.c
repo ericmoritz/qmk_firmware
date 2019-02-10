@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
   RGB_TOG,    ,    ,    ,    ,VOLU,               WH_U,BTN1,MS_U,BTN2,WH_U,F12 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,BTN4,BTN3,BTN2,BTN1,MUTE,               WH_D,MS_L,MS_D,MS_R,WH_D,    ,
+  CAPSLOCK,BTN4,BTN3,BTN2,BTN1,MUTE,               WH_D,MS_L,MS_D,MS_R,WH_D,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,    ,BTN3,BTN4,BTN5,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
