@@ -1,0 +1,10 @@
+* EAM keymap
+** Goals
+*** Adhere to QWERTY as close as possible
+    I don't like it, but I don't want to feel like my hands are tied at someone else's keyboard
+*** Reduce "EMACS pinky as much as possible"
+    Avoid chorded sequences with a mod key held down by the pinky. It is the weakest finger and mine gets sore after a while
+** Features
+*** TODO modifier underglow indicator
+*** TODO color blended when multiple modifiers are applied
+*** TODO "bilighting"
