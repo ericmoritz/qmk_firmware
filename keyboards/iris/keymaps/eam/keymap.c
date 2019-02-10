@@ -22,9 +22,9 @@ enum custom_keycodes {
 #define KC_RASE RAISE
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
-#define KC_CESC MT(MOD_LCTL, KC_ESC)
-#define KC_CSPC MT(MOD_LCTL, KC_SPC)
-#define KC_CENT MT(MOD_LCTL, KC_ENT)
+#define KC_CESC CTL_T(KC_ESC)
+#define KC_CSPC CTL_T(KC_SPC)
+#define KC_CENT CTL_T(KC_ENT)
 #define KC_OSLK LCTL(LGUI(KC_Q))
 #define KC_RGB_TOG RGB_TOG
 
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     GESC, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0 ,    ,
+         , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0 ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSPC ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,WAKE,OSLK,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,               PGUP,HOME, UP ,END ,LBRC,RBRC,
+     GRV ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,TILD,PIPE,PLUS,MINS,    ,               PGDN,LEFT,DOWN,RGHT,PGDN,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-  RGB_TOG,    ,    ,    ,    ,VOLU,               WH_U,BTN1,MS_U,BTN2,    ,F12 ,
+  RGB_TOG,    ,    ,    ,    ,VOLU,               WH_U,BTN1,MS_U,BTN2,WH_U,F12 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,BTN4,BTN3,BTN2,BTN1,MUTE,               WH_D,MS_L,MS_D,MS_R,    ,    ,
+         ,BTN4,BTN3,BTN2,BTN1,MUTE,               WH_D,MS_L,MS_D,MS_R,WH_D,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MPRV,MSTP,MPLY,MNXT,VOLD,    ,         ,    ,BTN3,BTN4,BTN5,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
