@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      ESC , A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSPO, Z  , X  , C  , V  , B  ,LCTL,     ENT , N  , M  ,COMM,DOT ,SLSH,RSPC,
+     LSPO, Z  , X  , C  , V  , B  ,LCTL,     RCTL, N  , M  ,COMM,DOT ,SLSH,RSPC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LALT,LGUI,SPC,         ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,WAKE,OSLK,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     GRV ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
+         ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,TILD,PIPE,PLUS,MINS,    ,               PGDN,LEFT,DOWN,RGHT,PGDN,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         , GRV,BSLS,EQL ,UNDS,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,GRV ,BSLS,EQL ,UNDS,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -97,6 +97,7 @@ void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
 }
+
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   twinkle(keycode, record);
