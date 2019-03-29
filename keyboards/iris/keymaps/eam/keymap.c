@@ -32,6 +32,7 @@ enum custom_keycodes {
 #define KC_RGB_TOG RGB_TOG
 #define KC_LSPC LT(_LOWER, KC_SPC)
 #define KC_RENT LT(_RAISE, KC_ENT)
+#define KC_ADJ MO(_ADJUST)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -45,19 +46,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSPO, Z  , X  , C  , V  , B  ,LALT,         , N  , M  ,COMM,DOT ,SLSH,RSPC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LSPC,LGUI,             ,RENT,
+                       LCTL,LSPC,LGUI,             ,RENT,ADJ
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,WAKE,OSLK,
+     OSLK,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   ,HOME, UP ,END ,PGUP,DEL ,
+    ,    ,HOME, UP ,END ,PGUP,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,TILD,PIPE,PLUS,MINS,    ,               PGDN,LEFT,DOWN,RGHT,PGDN,    ,
+    ,    ,LEFT,DOWN,RGHT,PGDN,                   ,TILD,PIPE,PLUS,MINS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,GRV ,BSLS,EQL ,UNDS,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,GRV ,BSLS,EQL ,UNDS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -105,7 +106,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 
 /* bool process_record_user(uint16_t keycode, keyrecord_t *record) { */
-/*   twinkle(keycode, record); */
 /*   switch (keycode) { */
 /*     case QWERTY: */
 /*       if (record->event.pressed) { */
@@ -146,8 +146,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 /* } */
 
 
-void twinkle(uint16_t keycode, keyrecord_t *record) {
-}
 
 uint32_t layer_state_set_user(uint32_t state) {
   switch (biton32(state)) {
