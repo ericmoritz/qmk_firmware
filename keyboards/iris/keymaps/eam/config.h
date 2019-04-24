@@ -57,4 +57,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define STARTUP_SONG SONG(PLANCK_SOUND)
 //#define STARTUP_SONG SONG(PREONIC_SOUND)
 #define STARTUP_SONG SONG(CLOSE_ENCOUNTERS_5_NOTE)
-#define TAPPING_TERM 250
+#define TAPPING_TERM 300

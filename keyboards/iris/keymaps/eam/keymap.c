@@ -123,7 +123,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_ROY RGUI_T(KC_Y)
 #define KC_RCH RCTL_T(KC_H)
 #define KC_RAN RALT_T(KC_N)
-
+#define KC_AM1 LALT(KC_LSFT) // Amethyst mod1
+#define KC_AM2 LCTL(LALT(KC_LSFT)) // Amethyst mod2
 /*****************************************************************************/
 /*                                Layout                                     */
 /*****************************************************************************/
@@ -139,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSSC, Z  , X  , C  , V  ,LAB ,    ,         ,RAN , M  ,COMM,DOT ,SLSH,RSSC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,SPC,         ENT,LOWR,RASE
+                       AM1 ,AM2 ,SPC,         ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
