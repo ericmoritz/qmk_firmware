@@ -117,14 +117,12 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 /*****************************************************************************/
 // This makes the TGB and YHN keys GUI, CTRL, and ALT for both hands
 
-#define KC_LOT GUI_T(KC_T)
-#define KC_LCG CTL_T(KC_G)
-#define KC_LAB ALT_T(KC_B)
-#define KC_ROY RGUI_T(KC_Y)
-#define KC_RCH RCTL_T(KC_H)
-#define KC_RAN RALT_T(KC_N)
-#define KC_AM1 LALT(KC_LSFT) // Amethyst mod1
-#define KC_AM2 LCTL(LALT(KC_LSFT)) // Amethyst mod2
+#define KC_LTT GUI_T(KC_T)
+#define KC_LTG CTL_T(KC_G)
+#define KC_LTB ALT_T(KC_B)
+#define KC_RTY RGUI_T(KC_Y)
+#define KC_RTH RCTL_T(KC_H)
+#define KC_RTN RALT_T(KC_N)
 /*****************************************************************************/
 /*                                Layout                                     */
 /*****************************************************************************/
@@ -134,13 +132,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
     LBRC, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0 ,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  ,LOT ,               ROY , U  , I  , O  , P  ,BSPC ,
+     TAB , Q  , W  , E  , R  ,LTT ,               RTY , U  , I  , O  , P  ,BSPC ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     ESC , A  , S  , D  , F  ,LCG ,               RCH , J  , K  , L  ,SCLN,QUOT,
+     ESC , A  , S  , D  , F  ,LTG ,               RTH , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSSC, Z  , X  , C  , V  ,LAB ,    ,         ,RAN , M  ,COMM,DOT ,SLSH,RSSC,
+     LSSC, Z  , X  , C  , V  ,LTB ,    ,         ,RTN , M  ,COMM,DOT ,SLSH,RSSC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       AM1 ,AM2 ,SPC,         ENT,LOWR,RASE
+                           ,    ,SPC,         ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
