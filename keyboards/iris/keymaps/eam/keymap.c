@@ -198,7 +198,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  twinkle(keycode, record);
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
@@ -239,10 +238,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 
-void twinkle(uint16_t keycode, keyrecord_t *record) {
-}
-
 uint32_t layer_state_set_user(uint32_t state) {
+  #ifdef RGBLIGHT_ENABLE
   switch (biton32(state)) {
   case _RAISE:
     // Pink
@@ -261,5 +258,6 @@ uint32_t layer_state_set_user(uint32_t state) {
     rgblight_sethsv_noeeprom(299, 140, 163);
     break;
   }
+  #endif
   return state;
 }
