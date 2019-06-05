@@ -132,13 +132,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
     LBRC, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0 ,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  ,LTT ,               RTY , U  , I  , O  , P  ,BSPC ,
+     TAB , Q  , W  , E  , R  ,  T ,                 Y , U  , I  , O  , P  ,BSPC ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     ESC , A  , S  , D  , F  ,LTG ,               RTH , J  , K  , L  ,SCLN,QUOT,
+     ESC , A  , S  , D  , F  ,  G ,                 H , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  ,LTB ,    ,         ,RTN , M  ,COMM,DOT ,SLSH,RSFT,
+     LSFT, Z  , X  , C  , V  ,  B ,LGUI,         ,  N , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,SPC,         ENT,LOWR,RASE
+                      LALT ,LCTL,SPC,         ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
