@@ -123,6 +123,20 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_RTY RGUI_T(KC_Y)
 #define KC_RTH RCTL_T(KC_H)
 #define KC_RTN RALT_T(KC_N)
+
+
+/*****************************************************************************/
+/*                                horizontal mods                               */
+/*****************************************************************************/
+// This makes the SDF and JKL keys CTRL, SUPER and ALT for both hands
+
+#define KC_TS LGUI_T(KC_S)
+#define KC_TD ALT_T(KC_D)
+#define KC_TF LCTL_T(KC_F)
+#define KC_TJ RCTL_T(KC_J)
+#define KC_TK RALT_T(KC_K)
+#define KC_TL RGUI_T(KC_L)
+
 /*****************************************************************************/
 /*                                Layout                                     */
 /*****************************************************************************/
@@ -134,11 +148,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  ,  T ,                 Y , U  , I  , O  , P  ,BSPC ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     ESC , A  , S  , D  , F  ,  G ,                 H , J  , K  , L  ,SCLN,QUOT,
+     ESC , A  , TS  , TD  , TF  ,  G ,                 H , TJ  , TK  , TL  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  ,  B ,LGUI,         ,  N , M  ,COMM,DOT ,SLSH,RSFT,
+     LSFT, Z  , X  , C  , V  ,  B ,    ,         ,  N , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                      LALT ,LCTL,SPC,         ENT,LOWR,RASE
+                      RASE ,LOWR,SPC,         ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
