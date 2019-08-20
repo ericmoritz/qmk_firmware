@@ -160,11 +160,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,MINS, EQL,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,HOME,UP  ,END ,PGUP,                   ,    ,    ,LBRC,RBRC,BSLS,
+         ,    ,HOME,UP  ,END ,PGUP,                   ,PGDN,PGUP,LBRC,RBRC,BSLS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,LEFT,DOWN,RGHT,PGDN,               LEFT,DOWN,UP  ,RGHT,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,END ,HOME,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -252,26 +252,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 
-uint32_t layer_state_set_user(uint32_t state) {
-  #ifdef RGBLIGHT_ENABLE
-  switch (biton32(state)) {
-  case _RAISE:
-    // Pink
-    rgblight_sethsv_noeeprom(330, 255, 255);
-    break;
-  case _LOWER:
-    // Blue
-    rgblight_sethsv_noeeprom(240, 255, 255);
-    break;
-  case _ADJUST:
-    // White
-    rgblight_sethsv_noeeprom(0, 0, 255);
-    break;
-  default: //  for any other layers, or the default layer
-    // Purple
-    rgblight_sethsv_noeeprom(299, 140, 163);
-    break;
-  }
-  #endif
-  return state;
-}
+/* uint32_t layer_state_set_user(uint32_t state) { */
+/*   #ifdef RGBLIGHT_ENABLE */
+/*   switch (biton32(state)) { */
+/*   case _RAISE: */
+/*     // Pink */
+/*     rgblight_sethsv_noeeprom(330, 255, 255); */
+/*     break; */
+/*   case _LOWER: */
+/*     // Blue */
+/*     rgblight_sethsv_noeeprom(240, 255, 255); */
+/*     break; */
+/*   case _ADJUST: */
+/*     // White */
+/*     rgblight_sethsv_noeeprom(0, 0, 255); */
+/*     break; */
+/*   default: //  for any other layers, or the default layer */
+/*     // Purple */
+/*     rgblight_sethsv_noeeprom(299, 140, 163); */
+/*     break; */
+/*   } */
+/*   #endif */
+/*   return state; */
+

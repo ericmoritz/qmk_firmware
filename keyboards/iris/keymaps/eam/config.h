@@ -36,9 +36,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_DELAY 0
 #define MOUSEKEY_TIME_TO_MAX 60
 #define MOUSEKEY_MAX_SPEED 14
-#define MOUSEKEY_WHEEL_DELAY 0
-#define MOUSEKEY_WHEEL_MAX_SPEED   1
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 255
+//#define MOUSEKEY_WHEEL_DELAY 0
+//#define MOUSEKEY_WHEEL_MAX_SPEED   1
+//#define MOUSEKEY_WHEEL_TIME_TO_MAX 255
 
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
