@@ -133,9 +133,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_TS LGUI_T(KC_S)
 #define KC_TD ALT_T(KC_D)
 #define KC_TF LCTL_T(KC_F)
-#define KC_TJ RCTL_T(KC_J)
-#define KC_TK RALT_T(KC_K)
-#define KC_TL RGUI_T(KC_L)
+#define KC_TJ LCTL_T(KC_J)
+#define KC_TK LALT_T(KC_K)
+#define KC_TL LGUI_T(KC_L)
 
 /*****************************************************************************/
 /*                                Layout                                     */
