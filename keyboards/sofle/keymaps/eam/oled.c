@@ -300,9 +300,6 @@ static void print_status_narrow(void) {
             oled_write("Undef", false);
     }
 
-    /* caps lock */
-    oled_set_cursor(0,8);
-
     /* KEYBOARD PET RENDER START */
 
     render_luna(0,13);
