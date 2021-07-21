@@ -16,87 +16,6 @@ enum custom_keycodes {
   ADJUST,
 };
 
-/*****************************************************************************/
-/*                                 Tap Dance                                  */
-/*****************************************************************************/
-void eam_lssc(qk_tap_dance_state_t *state, void *user_data) {
-  if(state->count == 1) {
-    if(!state->pressed) {
-      register_code(KC_LSFT);
-      register_code(KC_9);
-    } else {
-      register_code(KC_LSFT);
-    }
-  } else if (state->count == 2) {
-    register_code(KC_LSFT);
-    register_code(KC_LBRC);
-  } else if (state->count == 3) {
-    register_code(KC_LBRC);
-  }
-}
-
-void eam_lssc_reset(qk_tap_dance_state_t *state, void *user_data) {
-  if(state->count == 1) {
-    if(!state->pressed) {
-      unregister_code(KC_LSFT);
-      unregister_code(KC_9);
-      unregister_code(KC_LSFT);
-    } else {
-      unregister_code(KC_LSFT);
-    }
-  } else if (state->count == 2) {
-    unregister_code(KC_LSFT);
-    unregister_code(KC_LBRC);
-  } else if (state->count == 3) {
-    unregister_code(KC_LBRC);
-  }
-}
-
-void eam_rssc(qk_tap_dance_state_t *state, void *user_data) {
-  if(state->count == 1) {
-    if(!state->pressed) {
-      register_code(KC_LSFT);
-      register_code(KC_0);
-    } else {
-      register_code(KC_RSFT);
-    }
-  } else if (state->count == 2) {
-    register_code(KC_LSFT);
-    register_code(KC_RBRC);
-  } else if (state->count == 3) {
-    register_code(KC_RBRC);
-  }
-}
-
-void eam_rssc_reset(qk_tap_dance_state_t *state, void *user_data) {
-  if(state->count == 1) {
-    if(!state->pressed) {
-      unregister_code(KC_LSFT);
-      unregister_code(KC_0);
-      unregister_code(KC_RSFT);
-    } else {
-      unregister_code(KC_RSFT);
-    }
-  } else if (state->count == 2) {
-    unregister_code(KC_LSFT);
-    unregister_code(KC_RBRC);
-  } else if (state->count == 3) {
-    unregister_code(KC_RBRC);
-  }
-}
-
-
-enum {
-      // Left Super Space Cadet Shift
-      TD_LSSCS = 0,
-      TD_RSSCS
-};
-
-qk_tap_dance_action_t tap_dance_actions[] = {
-                                             [TD_LSSCS] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, eam_lssc, eam_lssc_reset),
-                                             [TD_RSSCS] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, eam_rssc, eam_rssc_reset),
-};
-
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
@@ -109,8 +28,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_CENT CTL_T(KC_ENT)
 #define KC_OSLK LCTL(LGUI(KC_Q))
 #define KC_RGB_TOG RGB_TOG
-#define KC_LSSC TD(TD_LSSCS)
-#define KC_RSSC TD(TD_RSSCS)
 
 /*****************************************************************************/
 /*                                pointer mods                               */
