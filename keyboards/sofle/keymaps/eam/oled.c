@@ -197,7 +197,10 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
         }
 
         /* switch frame */
-        current_frame = (current_frame + 1) % 2;
+        if(is_oled_on()) { // pause the animation if the oled is off
+            current_frame = (current_frame + 1) % 2;
+        }
+
 
         /* current status */
         if(led_usb_state.caps_lock) {
@@ -228,6 +231,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
         oled_on();
         anim_sleep = timer_read32();
     } else if(timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
+        anim_sleep = 0;
         oled_off();
     }
 
