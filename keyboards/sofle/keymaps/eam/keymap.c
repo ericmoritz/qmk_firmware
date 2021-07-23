@@ -153,8 +153,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_RCTL:
             if (record->event.pressed) {
                 isSneaking = true;
+                ctrlPressed = true;
             } else {
                 isSneaking = false;
+                ctrlPressed = false;
+            }
+            break;
+        case KC_LALT:
+        case KC_RALT:
+            if (record->event.pressed) {
+                altPressed = true;
+            } else {
+                altPressed = false;
+            }
+            break;
+        case KC_LGUI:
+        case KC_RGUI:
+            if (record->event.pressed) {
+                guiPressed = true;
+            } else {
+                guiPressed = false;
             }
             break;
         case KC_SPC:

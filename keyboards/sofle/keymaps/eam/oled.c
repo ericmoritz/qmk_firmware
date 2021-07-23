@@ -56,6 +56,9 @@ bool isSneaking = false;
 bool isJumping = false;
 bool showedJump = true;
 bool anyKeyPressed = false;
+bool guiPressed = false;
+bool altPressed = false;
+bool ctrlPressed = false;
 
 /* logic */
 static void render_luna(int LUNA_X, int LUNA_Y) {
@@ -288,6 +291,15 @@ static void print_status_narrow(void) {
         default:
             oled_write("Undef", false);
     }
+
+    oled_set_cursor(0,6);
+    oled_write("S", guiPressed);
+
+    oled_set_cursor(2,6);
+    oled_write("M", altPressed);
+
+    oled_set_cursor(4,6);
+    oled_write("C", ctrlPressed);
 
     /* KEYBOARD PET RENDER START */
 
