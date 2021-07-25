@@ -265,20 +265,18 @@ static void print_logo_narrow(void) {
 }
 
 static void print_status_narrow(void) {
-    /* Print current mode */
-    oled_set_cursor(0,0);
-    if (keymap_config.swap_lctl_lgui) {
-        oled_write_raw_P(mac_logo, sizeof(mac_logo));
-    } else {
-        oled_write_raw_P(windows_logo, sizeof(windows_logo));
-    }
+    render_logo();
+    oled_set_cursor(0,5);
+    oled_write("DON'T", false);
+    oled_set_cursor(0,6);
+    oled_write("PANIC", false);
 
-    oled_set_cursor(0,3);
+    oled_set_cursor(0,8);
 
     /* Print current layer */
     oled_write("LAYER", false);
 
-    oled_set_cursor(0,4);
+    oled_set_cursor(0,9);
 
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
@@ -297,13 +295,13 @@ static void print_status_narrow(void) {
             oled_write("Undef", false);
     }
 
-    oled_set_cursor(0,6);
+    oled_set_cursor(0,10);
     oled_write("S", guiPressed);
 
-    oled_set_cursor(2,6);
+    oled_set_cursor(2,10);
     oled_write("M", altPressed);
 
-    oled_set_cursor(4,6);
+    oled_set_cursor(4,10);
     oled_write("C", ctrlPressed);
 
     /* KEYBOARD PET RENDER START */
