@@ -54,6 +54,7 @@ led_t led_usb_state;
 
 bool isSneaking = false;
 bool isJumping = false;
+bool isBarking = false;
 bool showedJump = true;
 bool anyKeyPressed = false;
 bool guiPressed = false;
@@ -207,7 +208,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 
         /* current status */
-        if(led_usb_state.caps_lock) {
+        if(isBarking) {
             oled_write_raw_P(bark[abs(1 - current_frame)], ANIM_SIZE);
 
         } else if(isSneaking) {

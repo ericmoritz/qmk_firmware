@@ -171,8 +171,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_RGUI:
             if (record->event.pressed) {
                 guiPressed = true;
+                isBarking = true;
             } else {
                 guiPressed = false;
+                isBarking = false;
             }
             break;
         case KC_SPC:
