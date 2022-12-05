@@ -18,9 +18,6 @@ enum custom_keycodes {
 
 #include "oled.c"
 
-#define KC_SSPC LSFT_T(KC_SPC)
-#define KC_SENT RSFT_T(KC_ENT)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * QWERTY
@@ -34,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
    KC_ESC , KC_A  , KC_S  , KC_D  , KC_F  , KC_G  ,                      KC_H  , KC_J  , KC_K  , KC_L  ,KC_SCLN,KC_QUOT,
 //|-------+-------+-------+-------+-------+-------+-------.    .-------+-------+-------+-------+-------+-------+-------|
-   _______, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,KC_BTN3,     KC_MUTE, KC_N  , KC_M  ,KC_COMM, KC_DOT,KC_SLSH,_______,
+   KC_LSFT, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,KC_BTN3,     KC_MUTE, KC_N  , KC_M  ,KC_COMM, KC_DOT,KC_SLSH,KC_RSFT,
 //`-------+-------+-------+-------+-------+-------+-------     |-------+-------+-------+-------+-------+-------+-------'
-                    KC_LGUI,KC_LALT,KC_LCTL,KC_LOWR,KC_SPC,     KC_SENT ,KC_LOWR,KC_RCTL,KC_LALT,KC_RGUI
+                    KC_LGUI,KC_LALT,KC_LCTL,KC_LOWR,KC_SPC,     KC_ENT ,KC_LOWR,KC_RCTL,KC_LALT,KC_RGUI
 //                `-------+-------+-------+-------+-------'    `-------+-------+-------+-------+-------'
 ),
 /* LOWER
