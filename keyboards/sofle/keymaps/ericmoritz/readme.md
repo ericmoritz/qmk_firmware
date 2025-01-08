@@ -33,7 +33,8 @@ Start with both sides disconnected from the computer
 Plug in the left side's USB-C connector to the computer, and run the following:
 
 ```
-sudo qmk flash -kb sofle/rev1 -km eam -bl dfu
+nix-shell
+sudo qmk flash -kb sofle/rev1 -km ericmoritz -bl dfu
 ```
 
 Press the reset button on the left hand side to trigger the install
@@ -41,7 +42,8 @@ Press the reset button on the left hand side to trigger the install
 Uplug the left side's USB-C cable and plug in the right hand side's USB-Micro connector into the computer. Run the following
 
 ```sh
-sudo qmk flash -kb sofle/rev1 -km eam 
+nix-shell
+sudo qmk flash -kb sofle/rev1 -km ericmoritz
 ```
 
 Press the reset button on the right hand side to trigger the install
