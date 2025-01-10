@@ -179,35 +179,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-#ifdef ENCODER_ENABLE
 
-bool encoder_update_user(uint8_t index, bool clockwise) {
-  bool is_lowered = layer_state_is(_LOWER);
-    if (index == 0) {
-    // the left encoder is always a scroll wheel
-    if (clockwise) {
-      tap_code(KC_MS_WH_DOWN);
-    } else {
-      tap_code(KC_MS_WH_UP);
-    }
-  } else if (!is_lowered && index == 1) {
-    // if the layer is not raised, treat the left encoder like a
-    // volume wheel
-    if (clockwise) {
-      tap_code(KC_VOLU);
-    } else {
-      tap_code(KC_VOLD);
-    }
-  } else if (is_lowered && index == 1) {
-    // if the layer is raised, treat the right encoder like a
-    // next/previous track scrubber
-    if (clockwise) {
-      tap_code(KC_MNXT);
-    } else {
-      tap_code(KC_MPRV);
-    }
-  }
-  return true;
-}
-
+#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    { ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    { ENCODER_CCW_CW(MS_WHLD, MS_WHLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+    { ENCODER_CCW_CW(MS_WHLD, MS_WHLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+    { ENCODER_CCW_CW(MS_WHLD, MS_WHLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+};
 #endif
